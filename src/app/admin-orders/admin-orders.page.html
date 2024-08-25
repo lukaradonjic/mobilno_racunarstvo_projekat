@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <img src='../../assets/back-dark.svg' />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="order-items">
+    <h1 class="title">Porudžbine</h1>
+
+    <ion-card>
+      <ion-card-content *ngFor="let order of orders">
+        <div class="item-img">
+          <img src='{{order.order.cart.image}}' />
+        </div>
+
+        <div class="item-info">
+          <p>{{order.order.cart.name}}</p>
+          <p>{{order.order.cart.totalPrice}} RSD</p>
+          <p>{{order.order.time}}</p>
+          <p *ngIf="order.order.status === 1">U obradi</p>
+          <p *ngIf="order.order.status === 2">Potvrdjeno</p>
+          <p *ngIf="order.order.status === 3">Odbijeno</p>
+          <ion-button *ngIf="order.order.status === 1" class="main-button" (click)="confirm(order.key)">Potvrdi</ion-button>
+          <ion-button *ngIf="order.order.status === 1" class="main-button" (click)="reject(order.key)">Odbij</ion-button>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

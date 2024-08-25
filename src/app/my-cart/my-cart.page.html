@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <h1 class="title">Korpa</h1>
+
+  <div class="cart-items">
+    <ion-card>
+      <ion-card-content *ngFor="let item of cart">
+        <div class="item-img">
+          <img src="{{item.image}}" />
+        </div>
+
+        <div class="item-info">
+          <p>{{item.name}}</p>
+          <p>{{item.price}} RSD</p>
+
+          <div class="qty-selector">
+            <ion-button fill="clear" (click)="subtract(item.productId)">-</ion-button>
+            <ion-label>{{item.quantity}}</ion-label>
+            <ion-button fill="clear" (click)="add(item.productId)">+</ion-button>
+          </div>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent" *ngIf="cart.length > 0">
+    <ion-button expand="block" class="main-button" routerLink="/checkout" routerDirection="forward">Nastavite na pregled porudžbine</ion-button>
+  </ion-toolbar>
+</ion-footer>

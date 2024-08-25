@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button>
+        <img src="../../assets/menu_bar.svg" />
+      </ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="search ion-padding">
+    <ion-item lines="none">
+      <ion-input placeholder="Pretraga proizvoda" [(ngModel)]="search" (ngModelChange)="onSearchChange()"></ion-input>
+      <ion-icon name="search-outline" slot="start"></ion-icon>
+    </ion-item>
+  </div>
+
+  <div class="title ion-padding">
+    <h2 class="font-bold">Proizvodi</h2>
+  </div>
+
+  <div class="product-slider ion-padding-start">
+    <ion-grid>
+      <ion-row *ngFor="let product of products">
+        <ion-col class="ion-text-left" routerLink="/item-details/{{product.id}}" routerDirection="forward">
+          <img src="{{ product.image }}" />
+          <p>{{ product.price }} RSD</p>
+          <h6>{{ product.name }}</h6>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+
+</ion-content>

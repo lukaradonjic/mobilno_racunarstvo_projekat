@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-buttons class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-buttons>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen="true">
+  <h1 class="title">Potvda proudžbine</h1>
+
+  <div class="address">
+    <ion-item lines="none">
+      {{address}}
+    </ion-item>
+  </div>
+
+  <hr>
+
+  <div class="cart-total">
+    <ion-item lines="none">
+      <ion-label>Iznos</ion-label>
+      <ion-label slot="end" class="ion-text-right">{{totalPrice}} RSD</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Dostava</ion-label>
+      <ion-label slot="end" class="ion-text-right">{{delivery}} RSD</ion-label>
+    </ion-item>
+    <ion-item lines="none">
+      <ion-label>Ukupno za uplatu</ion-label>
+      <ion-label slot="end" class="ion-text-right">{{totalPrice + delivery}} RSD</ion-label>
+    </ion-item>
+  </div>
+</ion-content>
+<ion-footer translucent="true" class="ion-no-border" mode="md">
+  <ion-toolbar color="translucent" *ngIf="totalPrice > 0">
+    <ion-button expand="block" class="main-button" (click)="checkout()" routerDirection="forward">Poruči</ion-button>
+  </ion-toolbar>
+</ion-footer>

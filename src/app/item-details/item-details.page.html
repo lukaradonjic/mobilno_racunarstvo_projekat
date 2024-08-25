@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="primary" class="backbtn" routerLink="/home" routerDirection="back">
+        <img src="../../assets/back-dark.svg" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <img src="{{product.image}}" />
+
+  <div class="ion-padding-vertical">
+    <h1 class="item-name">{{product.name}}</h1>
+
+    <h4 class="price">
+      {{product.price}} RSD
+    </h4>
+  </div>
+
+  <div class="seperator">
+    <hr>
+  </div>
+
+  <div class="description">
+    <h5>Opis proizvoda</h5>
+
+    <p>
+      {{product.description}}
+    </p>
+
+  </div>
+
+  <div class="seperator">
+    <hr>
+  </div>
+
+</ion-content>
+<ion-footer>
+  <ion-row>
+    <ion-col size="12">
+      <ion-button expand="full" color="light" (click)="addToCart()">Dodaj u korpu</ion-button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

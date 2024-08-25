@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button class="backbtn" routerLink="/welcome" routerDirection="back">
+        <img src="../../assets/back.svg" />
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="ion-padding container">
+    <h1>Novi nalog</h1>
+
+    <div class="form-container">
+      <ion-item>
+        <ion-label position="floating">Ime</ion-label>
+        <ion-input [(ngModel)]="name"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input [(ngModel)]="email"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label position="floating">Lozinka</ion-label>
+        <ion-input [(ngModel)]="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button expand="block" class="main-button" (click)="register()">Napravite nalog</ion-button>
+
+      <div class="sign-up">
+        Imate nalog? <ion-button color="dark" fill="clear" routerLink="/login" routerDirection="forward">Prijavite se</ion-button>
+      </div>
+    </div>
+  </div>
+</ion-content>
